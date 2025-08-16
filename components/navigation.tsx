@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, Home, User, Settings, FileText, Mail } from "lucide-react";
+import { Menu, X, Home, User, FileText, Mail } from "lucide-react";
+import Link from "next/link";
 import { AnimatedThemeToggler } from "./magicui/animated-theme-toggler";
 import { cn } from "@/lib/utils";
 
@@ -31,7 +32,7 @@ export const Navigation = () => {
         <div className="flex h-16 items-center justify-between">
           {/* Logo/Brand */}
           <div className="flex items-center">
-            <a
+            <Link
               href="/"
               className="flex items-center space-x-2 text-xl font-bold text-foreground transition-colors hover:text-primary"
             >
@@ -39,7 +40,7 @@ export const Navigation = () => {
                 <span className="text-primary-foreground font-bold text-sm">A</span>
               </div>
               <span className="hidden sm:block">AnimatedTheme</span>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -47,14 +48,14 @@ export const Navigation = () => {
             {navItems.map((item) => {
               const Icon = item.icon;
               return (
-                <a
+                <Link
                   key={item.label}
                   href={item.href}
                   className="group flex items-center space-x-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
                 >
                   <Icon className="h-4 w-4 transition-transform group-hover:scale-110" />
                   <span>{item.label}</span>
-                </a>
+                </Link>
               );
             })}
           </div>
@@ -92,7 +93,7 @@ export const Navigation = () => {
             {navItems.map((item) => {
               const Icon = item.icon;
               return (
-                <a
+                <Link
                   key={item.label}
                   href={item.href}
                   className="flex items-center space-x-3 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
@@ -100,7 +101,7 @@ export const Navigation = () => {
                 >
                   <Icon className="h-4 w-4" />
                   <span>{item.label}</span>
-                </a>
+                </Link>
               );
             })}
           </div>
