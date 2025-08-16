@@ -1,8 +1,20 @@
+"use client";
+
 import { Navigation } from "@/components/navigation";
 import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
 import { ArrowRight, Sparkles, Palette, Zap } from "lucide-react";
 
 export default function Home() {
+  const scrollToDemo = () => {
+    const demoSection = document.getElementById('demo-section');
+    if (demoSection) {
+      demoSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -27,13 +39,13 @@ export default function Home() {
               Built with Next.js, Tailwind CSS, and cutting-edge web animations.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors">
+            <div className="flex justify-center">
+              <button 
+                onClick={scrollToDemo}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg hover:shadow-xl cursor-pointer focus:outline-none focus:ring-4 focus:ring-primary/30 focus:ring-offset-2"
+              >
                 Get Started
                 <ArrowRight className="h-4 w-4" />
-              </button>
-              <button className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border/40 bg-background text-foreground font-medium hover:bg-accent hover:text-accent-foreground transition-colors">
-                View Demo
               </button>
             </div>
           </div>
@@ -87,7 +99,7 @@ export default function Home() {
       </section>
 
       {/* Demo Section */}
-      <section className="py-20">
+      <section id="demo-section" className="py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">

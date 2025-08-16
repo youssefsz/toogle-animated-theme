@@ -41,6 +41,18 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --animate-shine: shine var(--duration) infinite linear;
+  @keyframes shine {
+  0% {
+    background-position: 0% 0%;
+    }
+  50% {
+    background-position: 100% 100%;
+    }
+  to {
+    background-position: 0% 0%;
+    }
+  }
 }
 
 :root {
@@ -119,6 +131,20 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Custom theme toggle spin animation */
+@keyframes theme-toggle-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.theme-toggle-spin {
+  animation: theme-toggle-spin 0.7s ease-in-out forwards;
 }
 
 ::view-transition-old(root), ::view-transition-new(root) {
